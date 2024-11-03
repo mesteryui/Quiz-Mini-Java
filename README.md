@@ -5,7 +5,7 @@ usando [Java](https://dev.java/) que es lo que estoy aprendiendo
 
 > [!IMPORTANT]
 > Me he introducido a la programacion orientada a objetos un poco por mi cuenta todavia no tengo idea de bastantes cosas
-> insto a quien quiera a mirar el codigo y si hay algo que corregir que me haga un **Pull Request**
+> insto a quien quiera a mirar el codigo y si hay algo que corregir que me haga un **Pull Request** por favor
 
 Se compone de dos clases una principal que gestiona todo y otra la clase `Pregunta` que sera definida a continuacion
 ## Clase `Pregunta`
