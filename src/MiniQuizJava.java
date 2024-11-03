@@ -122,7 +122,7 @@ public class MiniQuizJava {
             System.out.println(nombre + " ha obtenido " + puntosTotales + " sus conocimientos son de un nivel suficiente");
         } else if (puntosTotales==6) {
             System.out.println(nombre + " ha obtenido " + puntosTotales + " sus conocimientos son de un buen nivel");
-        } else if (puntosTotales>6 && puntosTotales<=8) {
+        } else if (puntosTotales<=8) {
             System.out.println(nombre + " ha obtenido " + puntosTotales + " sus conocimientos son notables");
         } else {
             System.out.println(nombre +" ha obtenido " + puntosTotales + " sus conocimientos son sobresalientes");
