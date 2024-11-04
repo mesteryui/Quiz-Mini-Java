@@ -80,7 +80,7 @@ public class MiniQuizJava {
             if (comenzar || comienzo.equals("yA")) {
                 pregunta1.mostrarPreguntaRespuestas();  // Usamos el metodo mostrar Pregunta para revelarla por pantalla
                 respuesta = datos.nextInt(); // Obtenemos una respuesta del usuaruio
-                puntosPregunta = pregunta1.compararRespuesta(respuesta); // Usamos el metodo compararRespuesta para si es correcta retornar los puntos correspondientes
+                puntosPregunta = pregunta1.compararRespuesta(respuesta); // Usamos el metodo compararRespuesta para sí es correcta retornar los puntos correspondientes
                 pregunta1.mostrarCorrecta(puntosPregunta); // Si la respuesta es correcta lo mostramos
                 puntosTotales += puntosPregunta; // Sumamos los puntos de cada pregunta a los puntos totales
 
