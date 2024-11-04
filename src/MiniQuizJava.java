@@ -74,8 +74,9 @@ public class MiniQuizJava {
         nombre = datos.next();
         System.out.print("Para comenzar escriba Ya:");
         comienzo = datos.next();
-        boolean comenzar = comienzo.equals("Ya") || comienzo.equals("ya");
+        boolean comenzar;
         do {
+            comenzar = comienzo.equals("Ya") || comienzo.equals("ya");
             if (comenzar || comienzo.equals("yA")) {
                 pregunta1.mostrarPreguntaRespuestas();  // Usamos el metodo mostrar Pregunta para revelarla por pantalla
                 respuesta = datos.nextInt(); // Obtenemos una respuesta del usuaruio
@@ -104,11 +105,12 @@ public class MiniQuizJava {
                 pregunta4.mostrarCorrecta(puntosPregunta);
                 puntosTotales += puntosPregunta;
                 break;
+
             }
             else {
                 System.out.println("Por favor introduzca la palabra ya");
                 comienzo = datos.next();
-                comenzar = comienzo.equals("Ya") || comienzo.equals("ya");
+                //comenzar = comienzo.equals("Ya") || comienzo.equals("ya");
             }
 
         }
