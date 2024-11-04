@@ -114,19 +114,18 @@ public class MiniQuizJava {
             }
 
         }
-        while (!comenzar || !comienzo.equals("yA"));
+        while (!comenzar || !comienzo.equals("yA")); // Bucle para si no escribimos la palabra de inicio correcta nos solicite hacerlo otra vez, todavia hay problemas
 
-        if (puntosTotales<5) {
+        if (puntosTotales<5) { //Si los puntos totales son menos que 5 los conocimientos no son suficientes
             System.out.println(nombre + " ha obtenido " + puntosTotales + " sus concocimientos son algo pobres");
-        } else if (puntosTotales==5) {
+        } else if (puntosTotales==5) { // Si son 5 son conocimientos suficientes
             System.out.println(nombre + " ha obtenido " + puntosTotales + " sus conocimientos son de un nivel suficiente");
-        } else if (puntosTotales==6) {
+        } else if (puntosTotales==6) { // Si son 6 los conocimientos son buenos
             System.out.println(nombre + " ha obtenido " + puntosTotales + " sus conocimientos son de un buen nivel");
-        } else if (puntosTotales<=8) {
+        } else if (puntosTotales<=8) { //Si son menor o igual a 8 con los anteriores excluidos entonces son notables
             System.out.println(nombre + " ha obtenido " + puntosTotales + " sus conocimientos son notables");
-        } else {
+        } else { // En cualquier otro caso es un sobresaliente ya que es 9 o mayor
             System.out.println(nombre +" ha obtenido " + puntosTotales + " sus conocimientos son sobresalientes");
         }
-
     }
 }
