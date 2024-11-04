@@ -27,6 +27,7 @@ class Pregunta {
         System.out.println("Introduzca abajo numero de su respuesta");
     }
 
+
     /**
      * Comparamos la respuesta con la respuesta correcta
      * @param respuesta la respuesta introducida por el usuario
