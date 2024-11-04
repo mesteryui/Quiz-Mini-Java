@@ -65,15 +65,15 @@ public class MiniQuizJava {
         String comienzo,nombre;
         Scanner datos = new Scanner(System.in);
 
-        // Definimos una instancia del objeto Pregunta con el siguiente contenido
+        // Definimos instancias del objeto pregunta para definir las preguntas
         Pregunta pregunta1 = new Pregunta("¿Como se declara una clase en Java?", 1, 2, "1, Usando class NombreClase\n 2. Usando clas NombreClase\n 3. Usando NombreClase");
         Pregunta pregunta2 = new Pregunta("¿Por que en Java los String se declaran en mayusculas?", 2, 4,"1.Porque si\n 2.Porque son una clase");
         Pregunta pregunta3 = new Pregunta("¿Que son los int,double,char?", 1, 2,"1. Tipos primitivos\n 2.Una clase\n 3.Ninguna de las anteriores");
         Pregunta pregunta4 = new Pregunta("¿Como se obtiene input desde la terminal en Java?",3,2,"1. El metodo input\n 2.La clase input\n 3. La clase Scanner");
-        System.out.println("Por favor indiqueme su nombre");
-        nombre = datos.next();
-        System.out.print("Para comenzar escriba Ya:");
-        comienzo = datos.next();
+        System.out.println("Por favor indiqueme su nombre"); // Indicamos que queremos el nombre
+        nombre = datos.next(); // Solicitamos datos del nombre
+        System.out.print("Para comenzar escriba Ya:"); // Indicamos si se quiere empezar
+        comienzo = datos.next(); // Solicitamos la palabra ya
         boolean comenzar;
         do {
             comenzar = comienzo.equals("Ya") || comienzo.equals("ya");
@@ -81,8 +81,8 @@ public class MiniQuizJava {
                 pregunta1.mostrarPreguntaRespuestas();  // Usamos el metodo mostrar Pregunta para revelarla por pantalla
                 respuesta = datos.nextInt(); // Obtenemos una respuesta del usuaruio
                 puntosPregunta = pregunta1.compararRespuesta(respuesta); // Usamos el metodo compararRespuesta para si es correcta retornar los puntos correspondientes
-                pregunta1.mostrarCorrecta(puntosPregunta);
-                puntosTotales += puntosPregunta;
+                pregunta1.mostrarCorrecta(puntosPregunta); // Si la respuesta es correcta lo mostramos
+                puntosTotales += puntosPregunta; // Sumamos los puntos de cada pregunta a los puntos totales
 
 
 
