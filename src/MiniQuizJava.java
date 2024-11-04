@@ -42,7 +42,7 @@ class Pregunta {
         }
     }
     /**
-     * Mustra si la respuesta ha sido correcta teniendo en cuenta los puntos retornados como parametro
+     * Muestra si la respuesta ha sido correcta teniendo en cuenta los puntos retornados como parametro
      * @param puntos los puntos de una pregunta
      */
     public void mostrarCorrecta(int puntos) {
@@ -105,13 +105,13 @@ public class MiniQuizJava {
                 puntosPregunta = pregunta4.compararRespuesta(respuesta);
                 pregunta4.mostrarCorrecta(puntosPregunta);
                 puntosTotales += puntosPregunta;
-                break;
+               break;
 
             }
             else {
                 System.out.println("Por favor introduzca la palabra ya");
                 comienzo = datos.next();
-                //comenzar = comienzo.equals("Ya") || comienzo.equals("ya");
+                comenzar = comienzo.equals("Ya") || comienzo.equals("ya");
             }
 
         }
