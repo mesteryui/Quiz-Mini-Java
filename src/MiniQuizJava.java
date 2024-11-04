@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Scanner; // Importamos clase Scanner para solicitar entrada al usuario
 
 /**
  * Declaramos la pregunta que tiene las caracteristicas de tener una respuesta correcta un contenido y una serie de puntos
