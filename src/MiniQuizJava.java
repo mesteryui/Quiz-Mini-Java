@@ -66,66 +66,71 @@ public class MiniQuizJava {
     public static void main(String[] args) {
         int puntosTotales=0,respuesta,puntosPregunta;
         String comienzo,nombre;
-        Scanner datos = new Scanner(System.in);
-
+        Scanner datosB = new Scanner(System.in);
         Pregunta pregunta1 = new Pregunta("¿Como se declara una clase en Java?", 1, 3, "1. Usando class NombreClase\n 2. Usando clas NombreClase\n 3. Usando NombreClase");
         Pregunta pregunta2 = new Pregunta("¿Por que en Java los String se declaran en mayusculas?", 2, 2,"1 Porque son un tipo primitivo\n 2.Porque son una clase\n 3.Porque lo digo yo");
         Pregunta pregunta3 = new Pregunta("¿Que son los int,double,char?", 1, 1,"1. Tipos primitivos\n 2.Una clase\n 3.Ninguna de las anteriores");
         Pregunta pregunta4 = new Pregunta("¿Como se obtiene input desde la terminal en Java?",3,3,"1. El metodo input\n 2.La clase input\n 3. La clase Scanner");
         Pregunta pregunta5 = new Pregunta("¿Que es la sobrecarga de funciones?",2,1,"1. El usar una funcion una y otra vez\n 2.El usar el mismo nombre de una funcion varias veces\n 3.Ninguna de las anteriores");
         System.out.println("Por favor indiqueme su nombre"); // Indicamos que queremos el nombre
-        nombre = datos.next(); // Solicitamos datos del nombre
+        nombre = datosB.next(); // Solicitamos datosB del nombre
         System.out.print("Para comenzar escriba Ya:"); // Indicamos si se quiere empezar
-        comienzo = datos.next(); // Solicitamos la palabra ya
+        comienzo = datosB.next(); // Solicitamos la palabra ya
         boolean comenzar;
         do {
             comenzar = comienzo.equals("Ya") || comienzo.equals("ya");
             if (comenzar || comienzo.equals("yA")) {
-                pregunta1.mostrarPreguntaRespuestas();  // Usamos el metodo mostrar Pregunta para revelarla por pantalla
-                respuesta = datos.nextInt(); // Obtenemos una respuesta del usuaruio
-                puntosPregunta = pregunta1.compararRespuesta(respuesta); // Usamos el metodo compararRespuesta para sí es correcta retornar los puntos correspondientes
+
+
+                puntosPregunta = preguntasObtenerPuntos(pregunta1);
                 pregunta1.mostrarCorrecta(puntosPregunta); // Si la respuesta es correcta lo mostramos
                 puntosTotales += puntosPregunta; // Sumamos los puntos de cada pregunta a los puntos totales
 
 
 
-                pregunta2.mostrarPreguntaRespuestas();
-                respuesta = datos.nextInt();
-                puntosPregunta = pregunta2.compararRespuesta(respuesta);
+                puntosPregunta = preguntasObtenerPuntos(pregunta2);
                 pregunta2.mostrarCorrecta(puntosPregunta);
                 puntosTotales += puntosPregunta;
 
 
-                pregunta3.mostrarPreguntaRespuestas();
-                respuesta = datos.nextInt();
-                puntosPregunta = pregunta3.compararRespuesta(respuesta);
+                puntosPregunta = preguntasObtenerPuntos(pregunta3);
                 pregunta3.mostrarCorrecta(puntosPregunta);
                 puntosTotales += puntosPregunta;
 
-                pregunta4.mostrarPreguntaRespuestas();
-                respuesta = datos.nextInt();
-                puntosPregunta = pregunta4.compararRespuesta(respuesta);
+
+                puntosPregunta = preguntasObtenerPuntos(pregunta4);
                 pregunta4.mostrarCorrecta(puntosPregunta);
                 puntosTotales += puntosPregunta;
 
-                pregunta5.mostrarPreguntaRespuestas();
-                respuesta = datos.nextInt();
-                puntosPregunta = pregunta5.compararRespuesta(respuesta);
+
+                puntosPregunta = preguntasObtenerPuntos(pregunta5);
                 pregunta5.mostrarCorrecta(puntosPregunta);
                 puntosTotales += puntosPregunta;
 
+                comprobacionesFinales(nombre,puntosTotales);
                break;
 
             }
             else {
                 System.out.println("Por favor introduzca la palabra ya");
-                comienzo = datos.next();
+                comienzo = datosB.next();
                 comenzar = comienzo.equals("Ya") || comienzo.equals("ya");
             }
 
         }
         while (!comenzar || !comienzo.equals("yA")); // Bucle para si no escribimos la palabra de inicio correcta nos solicite hacerlo otra vez, todavia hay problemas
 
+
+    }
+    static int preguntasObtenerPuntos(Pregunta pregunta) {
+        int respuesta, puntosPregunta;
+        Scanner datos = new Scanner(System.in);
+        pregunta.mostrarPreguntaRespuestas();  // Usamos el metodo mostrar Pregunta para revelarla por pantalla
+        respuesta = datos.nextInt(); // Obtenemos una respuesta del usuaruio
+        puntosPregunta = pregunta.compararRespuesta(respuesta); // Usamos el metodo compararRespuesta para sí es correcta retornar los puntos correspondientes
+        return puntosPregunta;
+    }
+    static void comprobacionesFinales(String nombre,int puntosTotales) {
         if (puntosTotales<5) { //Si los puntos totales son menos que 5 los conocimientos no son suficientes
             System.out.println(nombre + " ha obtenido " + puntosTotales + " sus concocimientos son algo pobres");
         } else if (puntosTotales==5) { // Si son 5 son conocimientos suficientes
