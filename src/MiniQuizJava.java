@@ -54,7 +54,7 @@ class Pregunta {
 public class MiniQuizJava {
     public static void main(String[] args) {
         int puntosTotales=0,puntosPregunta;
-        String comienzo,nombre;
+        String nombre;
         Scanner datosB = new Scanner(System.in);
         Pregunta pregunta1 = new Pregunta("¿Como se declara una clase en Java?", 1, 3, "1. Usando class NombreClase\n 2. Usando clas NombreClase\n 3. Usando NombreClase");
         Pregunta pregunta2 = new Pregunta("¿Por que en Java los String se declaran en mayusculas?", 2, 2,"1 Porque son un tipo primitivo\n 2.Porque son una clase\n 3.Porque lo digo yo");
@@ -64,11 +64,10 @@ public class MiniQuizJava {
         System.out.println("Por favor indiqueme su nombre"); // Indicamos que queremos el nombre
         nombre = datosB.next(); // Solicitamos datosB del nombre
         System.out.print("Para comenzar escriba Ya:"); // Indicamos si se quiere empezar
-        comienzo = datosB.next(); // Solicitamos la palabra ya
-        boolean comenzar;
+        String comienzo = datosB.next(); // Solicitamos la palabra ya
         do {
-            comenzar = comienzo.equals("Ya") || comienzo.equals("ya");
-            if (comenzar || comienzo.equals("yA")) {
+
+            if (comienzo.equalsIgnoreCase("ya")) {
 
 
                 puntosPregunta = preguntasObtenerPuntos(pregunta1); // Llamamos a la funcion para obtener puntos de preguntas
@@ -97,18 +96,15 @@ public class MiniQuizJava {
                 puntosTotales += puntosPregunta;
 
                 comprobacionesFinales(nombre,puntosTotales); // Llamamos a las comprobaciones finales
-               break;
 
             }
             else {
                 System.out.println("Por favor introduzca la palabra ya"); // Indica que se debe introducir la palabra Ya
                 comienzo = datosB.next();
-                comenzar = comienzo.equals("Ya") || comienzo.equals("ya");
             }
 
         }
-        while (!comenzar || !comienzo.equals("yA")); // Bucle para si no escribimos la palabra de inicio correcta nos solicite hacerlo otra vez, todavia hay problemas
-
+        while (comienzo.equalsIgnoreCase("ya")); // Bucle para si no escribimos la palabra de inicio correcta nos solicite hacerlo otra vez, todavia hay problemas
 
     }
     /**
