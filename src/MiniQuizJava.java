@@ -60,7 +60,7 @@ class Pregunta {
 /**
  * La principal gestiona el uso de lo demás para estrucutrar el programa
  * @author Oscar Rodriguez
- * @version 0.8
+ * @version 0.9
  */
 public class MiniQuizJava {
     public static void main(String[] args) {
@@ -82,15 +82,15 @@ public class MiniQuizJava {
             if (comenzar || comienzo.equals("yA")) {
 
 
-                puntosPregunta = preguntasObtenerPuntos(pregunta1);
+                puntosPregunta = preguntasObtenerPuntos(pregunta1); // Llamamos a la funcion para obtener puntos de preguntas
                 pregunta1.mostrarCorrecta(puntosPregunta); // Si la respuesta es correcta lo mostramos
                 puntosTotales += puntosPregunta; // Sumamos los puntos de cada pregunta a los puntos totales
 
 
 
-                puntosPregunta = preguntasObtenerPuntos(pregunta2);
-                pregunta2.mostrarCorrecta(puntosPregunta);
-                puntosTotales += puntosPregunta;
+                puntosPregunta = preguntasObtenerPuntos(pregunta2); // Llamamos a la funcion para obtener puntos de preguntas
+                pregunta2.mostrarCorrecta(puntosPregunta); // Si la respuesta es correcta lo mostramos
+                puntosTotales += puntosPregunta; // Sumamos los puntos de cada pregunta a los puntos totales
 
 
                 puntosPregunta = preguntasObtenerPuntos(pregunta3);
@@ -107,12 +107,12 @@ public class MiniQuizJava {
                 pregunta5.mostrarCorrecta(puntosPregunta);
                 puntosTotales += puntosPregunta;
 
-                comprobacionesFinales(nombre,puntosTotales);
+                comprobacionesFinales(nombre,puntosTotales); // Llamamos a las comprobaciones finales
                break;
 
             }
             else {
-                System.out.println("Por favor introduzca la palabra ya");
+                System.out.println("Por favor introduzca la palabra ya"); // Indica que se debe introducir la palabra Ya
                 comienzo = datosB.next();
                 comenzar = comienzo.equals("Ya") || comienzo.equals("ya");
             }
@@ -122,6 +122,12 @@ public class MiniQuizJava {
 
 
     }
+
+    /**
+     * Nos muestra las preguntas nos solicita respuesta y si acertamos nos devuelve los puntos
+     * @param pregunta la pregunta para hacer
+     * @return devuelve los puntos
+     */
     static int preguntasObtenerPuntos(Pregunta pregunta) {
         int respuesta, puntosPregunta;
         Scanner datos = new Scanner(System.in);
@@ -130,6 +136,12 @@ public class MiniQuizJava {
         puntosPregunta = pregunta.compararRespuesta(respuesta); // Usamos el metodo compararRespuesta para sí es correcta retornar los puntos correspondientes
         return puntosPregunta;
     }
+
+    /**
+     * Hacemos las comprobaciones finales para mostrar mensaje si es necesario
+     * @param nombre el nombre del jugador
+     * @param puntosTotales los puntos totales despues de haber hecho todas las preguntas
+     */
     static void comprobacionesFinales(String nombre,int puntosTotales) {
         if (puntosTotales<5) { //Si los puntos totales son menos que 5 los conocimientos no son suficientes
             System.out.println(nombre + " ha obtenido " + puntosTotales + " sus concocimientos son algo pobres");
