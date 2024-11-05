@@ -64,7 +64,7 @@ class Pregunta {
  */
 public class MiniQuizJava {
     public static void main(String[] args) {
-        int puntosTotales=0,respuesta,puntosPregunta;
+        int puntosTotales=0,puntosPregunta;
         String comienzo,nombre;
         Scanner datosB = new Scanner(System.in);
         Pregunta pregunta1 = new Pregunta("¿Como se declara una clase en Java?", 1, 3, "1. Usando class NombreClase\n 2. Usando clas NombreClase\n 3. Usando NombreClase");
