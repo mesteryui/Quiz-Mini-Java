@@ -1,5 +1,4 @@
 import java.util.Scanner; // Importamos clase Scanner para solicitar entrada al usuario
-
 /**
  * Declaramos la pregunta que tiene las caracteristicas de tener una respuesta correcta un contenido y una serie de puntos
  * si esta es correcta
@@ -11,6 +10,14 @@ class Pregunta {
     int respuestaCorrecta;
     int puntosPregunta;
     String respuestasPosibles;
+
+    /**
+     * Construccion de cada pregunta con los requerimientos precisos
+     * @param pregunta la pregunta que se le hace al usuario
+     * @param respuestaCorrecta la respuesta correcta a la pregunta hecha
+     * @param puntosPregunta los puntos de la pregunta
+     * @param respuestasPosibles las respuestas posibles de la misma
+     */
     Pregunta(String pregunta, int respuestaCorrecta, int puntosPregunta, String respuestasPosibles) { //Mediante el constructor determinamos los parametros de la clase
         this.pregunta = pregunta;
         this.respuestaCorrecta = respuestaCorrecta;
@@ -31,15 +38,10 @@ class Pregunta {
     /**
      * Comparamos la respuesta con la respuesta correcta
      * @param respuesta la respuesta introducida por el usuario
-     * @return devuelve el valor de los puntos
+     * @return devuelve el valor de los puntos si es correcta
      */
    public int compararRespuesta(int respuesta) {
-        if (respuesta==respuestaCorrecta) {
-            return puntosPregunta;
-        }
-        else {
-            return 0;
-        }
+        return (respuesta==respuestaCorrecta) ? puntosPregunta : 0;
     }
     /**
      * Muestra si la respuesta ha sido correcta teniendo en cuenta los puntos retornados como parametro
@@ -66,11 +68,11 @@ public class MiniQuizJava {
         String comienzo,nombre;
         Scanner datos = new Scanner(System.in);
 
-        // Definimos instancias del objeto pregunta para definir las preguntas
-        Pregunta pregunta1 = new Pregunta("¿Como se declara una clase en Java?", 1, 2, "1, Usando class NombreClase\n 2. Usando clas NombreClase\n 3. Usando NombreClase");
-        Pregunta pregunta2 = new Pregunta("¿Por que en Java los String se declaran en mayusculas?", 2, 4,"1.Porque si\n 2.Porque son una clase");
-        Pregunta pregunta3 = new Pregunta("¿Que son los int,double,char?", 1, 2,"1. Tipos primitivos\n 2.Una clase\n 3.Ninguna de las anteriores");
-        Pregunta pregunta4 = new Pregunta("¿Como se obtiene input desde la terminal en Java?",3,2,"1. El metodo input\n 2.La clase input\n 3. La clase Scanner");
+        Pregunta pregunta1 = new Pregunta("¿Como se declara una clase en Java?", 1, 3, "1. Usando class NombreClase\n 2. Usando clas NombreClase\n 3. Usando NombreClase");
+        Pregunta pregunta2 = new Pregunta("¿Por que en Java los String se declaran en mayusculas?", 2, 2,"1 Porque son un tipo primitivo\n 2.Porque son una clase\n 3.Porque lo digo yo");
+        Pregunta pregunta3 = new Pregunta("¿Que son los int,double,char?", 1, 1,"1. Tipos primitivos\n 2.Una clase\n 3.Ninguna de las anteriores");
+        Pregunta pregunta4 = new Pregunta("¿Como se obtiene input desde la terminal en Java?",3,3,"1. El metodo input\n 2.La clase input\n 3. La clase Scanner");
+        Pregunta pregunta5 = new Pregunta("¿Que es la sobrecarga de funciones?",2,1,"1. El usar una funcion una y otra vez\n 2.El usar el mismo nombre de una funcion varias veces\n 3.Ninguna de las anteriores");
         System.out.println("Por favor indiqueme su nombre"); // Indicamos que queremos el nombre
         nombre = datos.next(); // Solicitamos datos del nombre
         System.out.print("Para comenzar escriba Ya:"); // Indicamos si se quiere empezar
@@ -105,6 +107,13 @@ public class MiniQuizJava {
                 puntosPregunta = pregunta4.compararRespuesta(respuesta);
                 pregunta4.mostrarCorrecta(puntosPregunta);
                 puntosTotales += puntosPregunta;
+
+                pregunta5.mostrarPreguntaRespuestas();
+                respuesta = datos.nextInt();
+                puntosPregunta = pregunta5.compararRespuesta(respuesta);
+                pregunta5.mostrarCorrecta(puntosPregunta);
+                puntosTotales += puntosPregunta;
+
                break;
 
             }
