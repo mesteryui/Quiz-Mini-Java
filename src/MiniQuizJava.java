@@ -55,6 +55,7 @@ public class MiniQuizJava {
     public static void main(String[] args) {
         int puntosTotales=0,puntosPregunta;
         String nombre;
+        // Definimos un Scanner para obtener el nombre y decidir el comienzo
         Scanner datosB = new Scanner(System.in);
         Pregunta pregunta1 = new Pregunta("¿Como se declara una clase en Java?", 1, 3, "1. Usando class NombreClase\n 2. Usando clas NombreClase\n 3. Usando NombreClase");
         Pregunta pregunta2 = new Pregunta("¿Por que en Java los String se declaran en mayusculas?", 2, 2,"1 Porque son un tipo primitivo\n 2.Porque son una clase\n 3.Porque lo digo yo");
