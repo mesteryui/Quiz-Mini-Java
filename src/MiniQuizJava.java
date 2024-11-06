@@ -99,6 +99,7 @@ public class MiniQuizJava {
                 puntosTotales += puntosPregunta;
 
                 comprobacionesFinales(nombre,puntosTotales); // Llamamos a las comprobaciones finales
+                break;
 
             }
             else {
