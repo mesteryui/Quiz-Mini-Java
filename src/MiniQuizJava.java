@@ -84,9 +84,9 @@ public class MiniQuizJava {
                 puntosTotales += puntosPregunta; // Sumamos los puntos de cada pregunta a los puntos totales
 
 
-                puntosPregunta = preguntasObtenerPuntos(pregunta3);
-                mostrarCorrecta(puntosPregunta);
-                puntosTotales += puntosPregunta;
+                puntosPregunta = preguntasObtenerPuntos(pregunta3); // Llamamos a la funcion para obtener puntos de preguntas
+                mostrarCorrecta(puntosPregunta); // Si es correcta mostramos
+                puntosTotales += puntosPregunta; // Sumamos los puntos de preguntas a los puntos totales
 
 
                 puntosPregunta = preguntasObtenerPuntos(pregunta4);
