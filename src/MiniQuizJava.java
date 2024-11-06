@@ -57,18 +57,20 @@ public class MiniQuizJava {
         String nombre;
         // Definimos un Scanner para obtener el nombre y decidir el comienzo
         Scanner datosB = new Scanner(System.in);
+        // Objetos de la clase pregunta para definir las preguntas a hacer
         Pregunta pregunta1 = new Pregunta("¿Como se declara una clase en Java?", 1, 3, "1. Usando class NombreClase\n 2. Usando clas NombreClase\n 3. Usando NombreClase");
         Pregunta pregunta2 = new Pregunta("¿Por que en Java los String se declaran en mayusculas?", 2, 2,"1 Porque son un tipo primitivo\n 2.Porque son una clase\n 3.Porque lo digo yo");
         Pregunta pregunta3 = new Pregunta("¿Que son los int,double,char?", 1, 1,"1. Tipos primitivos\n 2.Una clase\n 3.Ninguna de las anteriores");
         Pregunta pregunta4 = new Pregunta("¿Como se obtiene input desde la terminal en Java?",3,3,"1. El metodo input\n 2.La clase input\n 3. La clase Scanner");
         Pregunta pregunta5 = new Pregunta("¿Que es la sobrecarga de funciones?",2,1,"1. El usar una funcion una y otra vez\n 2.El usar el mismo nombre de una funcion varias veces\n 3.Ninguna de las anteriores");
+        // Fin de la definicion de objetos
         System.out.println("Por favor indiqueme su nombre"); // Indicamos que queremos el nombre
         nombre = datosB.next(); // Solicitamos datosB del nombre
         System.out.print("Para comenzar escriba Ya:"); // Indicamos si se quiere empezar
         String comienzo = datosB.next(); // Solicitamos la palabra ya
         do {
 
-            if (comienzo.equalsIgnoreCase("ya")) {
+            if (comienzo.equalsIgnoreCase("ya")) { // Verificar si la palabra de inicio es igual a ya en cuyo caso iniciar cuestionario
 
 
                 puntosPregunta = preguntasObtenerPuntos(pregunta1); // Llamamos a la funcion para obtener puntos de preguntas
@@ -101,11 +103,12 @@ public class MiniQuizJava {
             }
             else {
                 System.out.println("Por favor introduzca la palabra ya"); // Indica que se debe introducir la palabra Ya
-                comienzo = datosB.next();
+                comienzo = datosB.next(); // Volver a pedir la palabra de inicio
             }
 
         }
         while (comienzo.equalsIgnoreCase("ya")); // Bucle para si no escribimos la palabra de inicio correcta nos solicite hacerlo otra vez, todavia hay problemas
+        datosB.close();
 
     }
     /**
@@ -113,10 +116,10 @@ public class MiniQuizJava {
      * @param puntos los puntos de una pregunta
      */
     public static void mostrarCorrecta(int puntos) {
-        if (puntos!=0) {
+        if (puntos!=0) { // Si los puntos de las preguntas son distintos a 0 muestra que la respuesta es correcta
             System.out.println("La respuesta es correcta");
         }
-        else {
+        else { // Si los puntos son 0 muestra que las respuestas son incorrectas
             System.out.println("La respuesta no es correcta");
         }
     }
@@ -131,6 +134,7 @@ public class MiniQuizJava {
         pregunta.mostrarPreguntaRespuestas();  // Usamos el metodo mostrar Pregunta para revelarla por pantalla
         respuesta = datos.nextInt(); // Obtenemos una respuesta del usuaruio
         puntosPregunta = pregunta.compararRespuesta(respuesta); // Usamos el metodo compararRespuesta para sí es correcta retornar los puntos correspondientes
+        datos.close();
         return puntosPregunta;
     }
 
