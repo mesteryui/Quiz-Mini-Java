@@ -41,7 +41,14 @@ class Pregunta {
      * @return devuelve el valor de los puntos si es correcta
      */
    public int compararRespuesta(int respuesta) {
-        return (respuesta==respuestaCorrecta) ? puntosPregunta : 0;
+       if (respuesta==respuestaCorrecta) { // Si los puntos de las preguntas son distintos a 0 muestra que la respuesta es correcta
+           System.out.println("La respuesta es correcta");
+           return puntosPregunta;
+       }
+       else { // Si los puntos son 0 muestra que las respuestas son incorrectas
+           System.out.println("La respuesta no es correcta");
+           return 0;
+       }
     }
 
 }
@@ -74,28 +81,23 @@ public class MiniQuizJava {
 
 
                 puntosPregunta = preguntasObtenerPuntos(pregunta1); // Llamamos a la funcion para obtener puntos de preguntas
-                mostrarCorrecta(puntosPregunta); // Si la respuesta es correcta lo mostramos
                 puntosTotales += puntosPregunta; // Sumamos los puntos de cada pregunta a los puntos totales
 
 
 
                 puntosPregunta = preguntasObtenerPuntos(pregunta2); // Llamamos a la funcion para obtener puntos de preguntas
-                mostrarCorrecta(puntosPregunta); // Si la respuesta es correcta lo mostramos
                 puntosTotales += puntosPregunta; // Sumamos los puntos de cada pregunta a los puntos totales
 
 
                 puntosPregunta = preguntasObtenerPuntos(pregunta3); // Llamamos a la funcion para obtener puntos de preguntas
-                mostrarCorrecta(puntosPregunta); // Si es correcta mostramos
                 puntosTotales += puntosPregunta; // Sumamos los puntos de preguntas a los puntos totales
 
 
                 puntosPregunta = preguntasObtenerPuntos(pregunta4);
-                mostrarCorrecta(puntosPregunta);
                 puntosTotales += puntosPregunta;
 
 
                 puntosPregunta = preguntasObtenerPuntos(pregunta5);
-                mostrarCorrecta(puntosPregunta);
                 puntosTotales += puntosPregunta;
 
                 comprobacionesFinales(nombre,puntosTotales); // Llamamos a las comprobaciones finales
@@ -112,18 +114,7 @@ public class MiniQuizJava {
         datosB.close();
 
     }
-    /**
-     * Muestra si la respuesta ha sido correcta teniendo en cuenta los puntos retornados como parametro
-     * @param puntos los puntos de una pregunta
-     */
-    public static void mostrarCorrecta(int puntos) {
-        if (puntos!=0) { // Si los puntos de las preguntas son distintos a 0 muestra que la respuesta es correcta
-            System.out.println("La respuesta es correcta");
-        }
-        else { // Si los puntos son 0 muestra que las respuestas son incorrectas
-            System.out.println("La respuesta no es correcta");
-        }
-    }
+
     /**
      * Nos muestra las preguntas nos solicita respuesta y si acertamos nos devuelve los puntos
      * @param pregunta la pregunta para hacer
@@ -135,7 +126,6 @@ public class MiniQuizJava {
         pregunta.mostrarPreguntaRespuestas();  // Usamos el metodo mostrar Pregunta para revelarla por pantalla
         respuesta = datos.nextInt(); // Obtenemos una respuesta del usuaruio
         puntosPregunta = pregunta.compararRespuesta(respuesta); // Usamos el metodo compararRespuesta para sí es correcta retornar los puntos correspondientes
-        datos.close();
         return puntosPregunta;
     }
 
