@@ -86,11 +86,11 @@ public class MiniQuizJava {
                 puntosTotales += preguntasObtenerPuntos(pregunta2); // Sumamos los puntos de cada pregunta a los puntos totales
 
 
-                puntosTotales += preguntasObtenerPuntos(pregunta3);; // Sumamos los puntos de preguntas a los puntos totales
+                puntosTotales += preguntasObtenerPuntos(pregunta3); // Sumamos los puntos de preguntas a los puntos totales
 
                 puntosTotales += preguntasObtenerPuntos(pregunta4);
 
-                puntosTotales += preguntasObtenerPuntos(pregunta5);;
+                puntosTotales += preguntasObtenerPuntos(pregunta5);
 
                 comprobacionesFinales(nombre,puntosTotales); // Llamamos a las comprobaciones finales
                 break;
