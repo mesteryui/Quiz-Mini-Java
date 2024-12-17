@@ -60,7 +60,7 @@ class Pregunta {
  */
 public class MiniQuizJava {
     public static void main(String[] args) {
-        int puntosTotales=0,puntosPregunta;
+        int puntosTotales=0;
         String nombre;
         // Definimos un Scanner para obtener el nombre y decidir el comienzo
         Scanner datosB = new Scanner(System.in);
@@ -80,25 +80,17 @@ public class MiniQuizJava {
             if (comienzo.equalsIgnoreCase("ya")) { // Verificar si la palabra de inicio es igual a ya en cuyo caso iniciar cuestionario
 
 
-                puntosPregunta = preguntasObtenerPuntos(pregunta1); // Llamamos a la funcion para obtener puntos de preguntas
-                puntosTotales += puntosPregunta; // Sumamos los puntos de cada pregunta a los puntos totales
+                puntosTotales += preguntasObtenerPuntos(pregunta1); // Sumamos los puntos de cada pregunta a los puntos totales
 
 
-
-                puntosPregunta = preguntasObtenerPuntos(pregunta2); // Llamamos a la funcion para obtener puntos de preguntas
-                puntosTotales += puntosPregunta; // Sumamos los puntos de cada pregunta a los puntos totales
+                puntosTotales += preguntasObtenerPuntos(pregunta2); // Sumamos los puntos de cada pregunta a los puntos totales
 
 
-                puntosPregunta = preguntasObtenerPuntos(pregunta3); // Llamamos a la funcion para obtener puntos de preguntas
-                puntosTotales += puntosPregunta; // Sumamos los puntos de preguntas a los puntos totales
+                puntosTotales += preguntasObtenerPuntos(pregunta3);; // Sumamos los puntos de preguntas a los puntos totales
 
+                puntosTotales += preguntasObtenerPuntos(pregunta4);
 
-                puntosPregunta = preguntasObtenerPuntos(pregunta4);
-                puntosTotales += puntosPregunta;
-
-
-                puntosPregunta = preguntasObtenerPuntos(pregunta5);
-                puntosTotales += puntosPregunta;
+                puntosTotales += preguntasObtenerPuntos(pregunta5);;
 
                 comprobacionesFinales(nombre,puntosTotales); // Llamamos a las comprobaciones finales
                 break;
