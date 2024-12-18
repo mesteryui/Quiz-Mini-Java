@@ -70,6 +70,7 @@ public class MiniQuizJava {
         Pregunta pregunta3 = new Pregunta("¿Que son los int,double,char?", 1, 1,"1. Tipos primitivos\n 2.Una clase\n 3.Ninguna de las anteriores");
         Pregunta pregunta4 = new Pregunta("¿Como se obtiene input desde la terminal en Java?",3,3,"1. El metodo input\n 2.La clase input\n 3. La clase Scanner");
         Pregunta pregunta5 = new Pregunta("¿Que es la sobrecarga de funciones?",2,1,"1. El usar una funcion una y otra vez\n 2.El usar el mismo nombre de una funcion varias veces\n 3.Ninguna de las anteriores");
+        Pregunta[] preguntas = {pregunta1,pregunta2,pregunta3,pregunta4,pregunta5};
         // Fin de la definicion de objetos
         System.out.println("Por favor indiqueme su nombre"); // Indicamos que queremos el nombre
         nombre = datosB.next(); // Solicitamos datosB del nombre
@@ -78,20 +79,9 @@ public class MiniQuizJava {
         do {
 
             if (comienzo.equalsIgnoreCase("ya")) { // Verificar si la palabra de inicio es igual a ya en cuyo caso iniciar cuestionario
-
-
-                puntosTotales += preguntasObtenerPuntos(pregunta1); // Sumamos los puntos de cada pregunta a los puntos totales
-
-
-                puntosTotales += preguntasObtenerPuntos(pregunta2); // Sumamos los puntos de cada pregunta a los puntos totales
-
-
-                puntosTotales += preguntasObtenerPuntos(pregunta3); // Sumamos los puntos de preguntas a los puntos totales
-
-                puntosTotales += preguntasObtenerPuntos(pregunta4);
-
-                puntosTotales += preguntasObtenerPuntos(pregunta5);
-
+                for (Pregunta pregunta : preguntas) {
+                    puntosTotales += preguntasObtenerPuntos(pregunta);
+                }
                 comprobacionesFinales(nombre,puntosTotales); // Llamamos a las comprobaciones finales
                 break;
 
@@ -113,12 +103,11 @@ public class MiniQuizJava {
      * @return devuelve los puntos
      */
     static int preguntasObtenerPuntos(Pregunta pregunta) {
-        int respuesta, puntosPregunta; //Declaramos variables para trabajar los puntos de las preguntas
+        int respuesta; //Declaramos variables para trabajar los puntos de las preguntas
         Scanner datos = new Scanner(System.in);
         pregunta.mostrarPreguntaRespuestas();  // Usamos el metodo mostrar Pregunta para revelarla por pantalla
         respuesta = datos.nextInt(); // Obtenemos una respuesta del usuaruio
-        puntosPregunta = pregunta.compararRespuesta(respuesta); // Usamos el metodo compararRespuesta para sí es correcta retornar los puntos correspondientes
-        return puntosPregunta;
+        return pregunta.compararRespuesta(respuesta); // Usamos el metodo compararRespuesta para sí es correcta retornar los puntos correspondientes;
     }
 
     /**
