@@ -98,8 +98,7 @@ public class MiniQuizJava {
         Pregunta pregunta3 = new Pregunta("¿Que son los int,double,char?", 1, 1,"1. Tipos primitivos\n2. Una clase\n3. Ninguna de las anteriores");
         Pregunta pregunta4 = new Pregunta("¿Como se obtiene input desde la terminal en Java?",2,3,"1. El metodo input\n2. La clase input\n3. La clase Scanner");
         Pregunta pregunta5 = new Pregunta("¿Que es la sobrecarga de funciones?",2,1,"1. El usar una funcion una y otra vez\n2. El usar el mismo nombre de una funcion varias veces\n3. Ninguna de las anteriores");
-        Pregunta[] preguntas = {pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,new Pregunta("¿Que es la herencia?",2,1,"1. La forma de que un metodo llama a otro metodo\n2. El que una clase herede cosas de otra siendo esta otra la clase padre\n3. No existe")};
-        return preguntas;
+        return new Pregunta[]{pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,new Pregunta("¿Que es la herencia?",2,1,"1. La forma de que un metodo llama a otro metodo\n2. El que una clase herede cosas de otra siendo esta otra la clase padre\n3. No existe")};
     }
 
     /**
