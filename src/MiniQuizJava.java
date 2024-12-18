@@ -65,12 +65,7 @@ public class MiniQuizJava {
         // Definimos un Scanner para obtener el nombre y decidir el comienzo
         Scanner datosB = new Scanner(System.in);
         // Objetos de la clase pregunta para definir las preguntas a hacer
-        Pregunta pregunta1 = new Pregunta("¿Como se declara una clase en Java?", 1, 3, "1. Usando class NombreClase\n 2. Usando clas NombreClase\n 3. Usando NombreClase");
-        Pregunta pregunta2 = new Pregunta("¿Por que en Java los String se declaran en mayusculas?", 2, 2,"1 Porque son un tipo primitivo\n 2.Porque son una clase\n 3.Porque lo digo yo");
-        Pregunta pregunta3 = new Pregunta("¿Que son los int,double,char?", 1, 1,"1. Tipos primitivos\n 2.Una clase\n 3.Ninguna de las anteriores");
-        Pregunta pregunta4 = new Pregunta("¿Como se obtiene input desde la terminal en Java?",3,3,"1. El metodo input\n 2.La clase input\n 3. La clase Scanner");
-        Pregunta pregunta5 = new Pregunta("¿Que es la sobrecarga de funciones?",2,1,"1. El usar una funcion una y otra vez\n 2.El usar el mismo nombre de una funcion varias veces\n 3.Ninguna de las anteriores");
-        Pregunta[] preguntas = {pregunta1,pregunta2,pregunta3,pregunta4,pregunta5};
+        Pregunta[] preguntas = getPreguntas();
         // Fin de la definicion de objetos
         System.out.println("Por favor indiqueme su nombre"); // Indicamos que queremos el nombre
         nombre = datosB.next(); // Solicitamos datosB del nombre
@@ -95,6 +90,16 @@ public class MiniQuizJava {
         while (comienzo.equalsIgnoreCase("ya")); // Bucle para si no escribimos la palabra de inicio correcta nos solicite hacerlo otra vez, todavia hay problemas
         datosB.close();
 
+    }
+
+    private static Pregunta[] getPreguntas() {
+        Pregunta pregunta1 = new Pregunta("¿Como se declara una clase en Java?", 1, 3, "1. Usando class NombreClase\n 2. Usando clas NombreClase\n 3. Usando NombreClase");
+        Pregunta pregunta2 = new Pregunta("¿Por que en Java los String se declaran en mayusculas?", 2, 2,"1 Porque son un tipo primitivo\n2. Porque son una clase\n3. Porque lo digo yo");
+        Pregunta pregunta3 = new Pregunta("¿Que son los int,double,char?", 1, 1,"1. Tipos primitivos\n2. Una clase\n3. Ninguna de las anteriores");
+        Pregunta pregunta4 = new Pregunta("¿Como se obtiene input desde la terminal en Java?",2,3,"1. El metodo input\n2. La clase input\n3. La clase Scanner");
+        Pregunta pregunta5 = new Pregunta("¿Que es la sobrecarga de funciones?",2,1,"1. El usar una funcion una y otra vez\n2. El usar el mismo nombre de una funcion varias veces\n3. Ninguna de las anteriores");
+        Pregunta[] preguntas = {pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,new Pregunta("¿Que es la herencia?",2,1,"1. La forma de que un metodo llama a otro metodo\n2. El que una clase herede cosas de otra siendo esta otra la clase padre\n3. No existe")};
+        return preguntas;
     }
 
     /**
